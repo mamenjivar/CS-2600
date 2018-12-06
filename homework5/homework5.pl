@@ -17,15 +17,14 @@ print "What's on right now\n\n";
 @channelTwo = ();
 @channelThree = ();
 
-# will read information from piped file
+# will read information from piped text file
 while($line = <>){
   $string .= $line;
 }
 
+# will parse through string and find specific data that contains title for specific channel
 @channelOne = $string =~ /<b>2.1<\/b>\s*<\/th>\s*<td.*>\s*<span.*<\/span>\s*<b.*>(.*)<\/b>/;
-#print join('', @channelOne) . "\n";
 @channelTwo = $string =~ /<b>4.1<\/b>\s*<\/th>\s*<td.*>\s*<span.*<\/span>\s*<b.*>(.*)<\/b>/;
-#print join('', @channelTwo) . "\n";
 @channelThree = $string =~ /<b>7.1<\/b>\s*<\/th>\s*<td.*>\s*<span.*<\/span>\s*<b.*>(.*)<\/b>/;
 
 # print out results
